@@ -1,6 +1,6 @@
 import UIKit
 
-protocol AuthDelegate: class {
+protocol AuthDelegate: AnyObject {
     
     func authenticationViewController(
         _ viewController: UIViewController,

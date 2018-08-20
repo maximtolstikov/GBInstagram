@@ -24,7 +24,7 @@ class AuthViewController: UIViewController, UIWebViewDelegate {
         let request = URLRequest(
             url: url,
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-            timeoutInterval: 15.0
+            timeoutInterval: 10.0
         )
         
         wkWebView.navigationDelegate = self
