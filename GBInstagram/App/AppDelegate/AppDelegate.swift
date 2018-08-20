@@ -64,6 +64,9 @@ extension AppDelegate: AuthDelegate {
             bundle: nil)
             .instantiateViewController(withIdentifier: "MainViewController")
         
-        viewController.present(mainViewController, animated: true, completion: nil)
+        viewController.present(
+            mainViewController,
+            animated: true,
+            completion: nil)
     }
 }

@@ -39,6 +39,13 @@ class Credential {
     }
     
     
+    // Получаем токен
+    func getTokenFromKetchain() -> String? {
+        
+        return token
+    }
+    
+    
     // Удаляем токен пользователя
     func deleteTokenFromKeychain() {
         

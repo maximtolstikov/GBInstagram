@@ -26,23 +26,17 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jex-1J-TYW">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="PCq-tF-ZL0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ayq-lU-sMT"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PCq-tF-ZL0" secondAttribute="trailing" id="IOn-Ej-RXo"/>
-                            <constraint firstItem="jex-1J-TYW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qcn-dY-kGV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PCq-tF-ZL0" secondAttribute="bottom" id="Yok-P6-2V0"/>
                             <constraint firstItem="PCq-tF-ZL0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c9i-zd-ZI9"/>
-                            <constraint firstItem="jex-1J-TYW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="w1y-K3-ooy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="jex-1J-TYW" id="3ad-k1-Os8"/>
                         <outlet property="wkWebView" destination="PCq-tF-ZL0" id="8kq-Q7-rMF"/>
                     </connections>
                 </viewController>
@@ -56,13 +50,43 @@
                     <view key="view" contentMode="scaleToFill" id="V2X-kp-X0X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZZ-oc-Sr9">
+                                <rect key="frame" x="162.5" y="321" width="50" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caf-ns-eUj">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem id="zh2-q8-ovP">
+                                        <barButtonItem key="rightBarButtonItem" title="Выйти" id="N7Z-LW-kDQ">
+                                            <connections>
+                                                <action selector="logout:" destination="IAK-ZS-AYa" id="q5c-97-x9g"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OZZ-oc-Sr9" firstAttribute="centerY" secondItem="V2X-kp-X0X" secondAttribute="centerY" id="VBL-Xa-s47"/>
+                            <constraint firstItem="caf-ns-eUj" firstAttribute="top" secondItem="PWG-zL-PO3" secondAttribute="top" id="c12-Eg-Lft"/>
+                            <constraint firstItem="caf-ns-eUj" firstAttribute="trailing" secondItem="PWG-zL-PO3" secondAttribute="trailing" id="dGM-p4-kCm"/>
+                            <constraint firstItem="OZZ-oc-Sr9" firstAttribute="centerX" secondItem="V2X-kp-X0X" secondAttribute="centerX" id="fbG-FL-6jl"/>
+                            <constraint firstItem="caf-ns-eUj" firstAttribute="leading" secondItem="PWG-zL-PO3" secondAttribute="leading" id="j7r-fL-di3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PWG-zL-PO3"/>
                     </view>
+                    <connections>
+                        <outlet property="userNameLabel" destination="OZZ-oc-Sr9" id="a9i-2N-IXy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHz-Y2-kpl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1406" y="30"/>
+            <point key="canvasLocation" x="982" y="37"/>
         </scene>
     </scenes>
 </document>
