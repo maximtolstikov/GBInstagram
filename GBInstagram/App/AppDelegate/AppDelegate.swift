@@ -40,34 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     return false
             }
 
-            authenticationController.delegate = self
             firstViewController = authenticationController
         }
 
         self.window?.rootViewController = firstViewController
         self.window?.makeKeyAndVisible()
         return true
-    }
-}
-
-
-extension AppDelegate: AuthDelegate {
-    
-    func authenticationViewController(
-        _ viewController: UIViewController,
-        authorizedWith token: String?) {
-
-        guard let key = token else { return }
-        Credential().saveTokenInKeychain(key)
-
-        let mainViewController = UIStoryboard(
-            name: "Main",
-            bundle: nil)
-            .instantiateViewController(withIdentifier: "MainViewController")
-
-        viewController.present(
-            mainViewController,
-            animated: true,
-            completion: nil)
     }
 }

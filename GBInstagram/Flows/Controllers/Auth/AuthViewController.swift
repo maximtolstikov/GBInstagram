@@ -6,9 +6,8 @@ import WebKit
 class AuthViewController: UIViewController, UIWebViewDelegate {
 
     @IBOutlet weak var wkWebView: WKWebView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    weak var delegate: AuthDelegate? //swiftlint:disable:this weak_delegate
+    var router: AuthenticationRouter?
     
     let clientId = "efde2e1af6b24b339b2654cd1660558f"
     let redirectURL = "https://www.instagram.com"
@@ -68,13 +67,14 @@ extension AuthViewController: WKNavigationDelegate {
             return
         }
         
-        let accessToken = urlString.components(
-            separatedBy: "#access_token=").last
+        if let accessToken = urlString.components(
+            separatedBy: "#access_token=").last {
+            
+            Credential().saveTokenInKeychain(accessToken)
+        }
         
-        self.delegate?.authenticationViewController(
-            self,
-            authorizedWith: accessToken
-        )
+        router = AuthenticationDefaultRouter(veiwController: self)        
+        router?.navigateAuthSuccess()
         
         decisionHandler(.cancel)
     }
