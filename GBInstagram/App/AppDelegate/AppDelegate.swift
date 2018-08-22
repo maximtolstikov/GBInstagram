@@ -33,14 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         } else {
 
-            guard let authenticationController = UIStoryboard(
-                name: "Main",
-                bundle: nil)
-                .instantiateViewController(withIdentifier: "AuthViewController") as? AuthViewController else {
-                    return false
-            }
-
-            firstViewController = authenticationController
+            let bilder = AuthenticationDefaultBilder()
+            firstViewController = bilder.viewController()
         }
 
         self.window?.rootViewController = firstViewController
