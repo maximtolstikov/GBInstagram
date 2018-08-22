@@ -2,17 +2,8 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController {    
     
-    struct API {
-        
-        static let host = "https://api.instagram.com/v1"
-        static let token = "?access_token="
-        
-        static func URLFor(apiMethod: String, token: String) -> String {
-            return self.host + apiMethod + self.token + token
-        }
-    }
     
     @IBOutlet weak var userNameLabel: UILabel!
     
@@ -23,7 +14,6 @@ class MainViewController: UIViewController {
         
         userNameLabel.text = "loading..."
         getUser()
-        
     }
     
     
@@ -33,8 +23,10 @@ class MainViewController: UIViewController {
         guard let token = Credential().getTokenFromKetchain() else {
             return
         }
+        let apiManager = APIManager.shared
+        let urlForMethod = apiManager.URLFor(apiMethod: methodGetUserData, token: token)
         
-        APIManager.shared.load(API.URLFor(apiMethod: methodGetUserData, token: token), { [weak self] (result) in
+        apiManager.load(urlForMethod, { [weak self] (result) in
             guard let result = (result as? [String: Any])?["data"] as? [String: Any] else {
                 DispatchQueue.main.async {
                     self?.userNameLabel.text = "error"
