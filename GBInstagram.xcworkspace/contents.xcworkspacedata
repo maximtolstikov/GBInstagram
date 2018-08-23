@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/maxim/Documents/Geekbrains/PatternsArchitectur/GBInstagram/GBInstagram/Flows/Router/AuthenticationDefaultRouter.swift">
-   </FileRef>
-   <FileRef
       location = "group:GBInstagram.xcodeproj">
    </FileRef>
    <FileRef

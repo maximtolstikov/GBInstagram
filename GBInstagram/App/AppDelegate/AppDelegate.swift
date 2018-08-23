@@ -16,17 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(
         _ application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {        
+        
+        let vc = AuthenticationViewController()
+        print("vc: \(vc.wkWebView)")
+        
         self.window = UIWindow()
 
         let firstViewController: UIViewController
-        let factory = FirstViewControllerFactory()
+        let factory = FirstViewControllerIphoneFactory()
         let viewController = factory.viewController(
             isUserAutheticated: Credential().isAuthorized)
         firstViewController = viewController
         self.window?.rootViewController = firstViewController
         self.window?.makeKeyAndVisible()
+        
         return true
     }
 }

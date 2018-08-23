@@ -2,13 +2,15 @@
 
 import UIKit
 
-class AuthenticationDefaultBilder: AuthenticationBilder {
+class AuthenticationIphoneBilder: AuthenticationBilder {
     
     func viewController() -> UIViewController {
         
-        let viewController = AuthViewController()
-        let router = AuthenticationDefaultRouter(veiwController: viewController)
+        let viewController = AuthenticationViewController()
+        let router = AuthenticationIphoneRouter(veiwController: viewController)
         viewController.router = router
+        
+        print(viewController.wkWebView)
         
         return viewController
     }

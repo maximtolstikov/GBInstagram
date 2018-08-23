@@ -3,9 +3,9 @@
 import UIKit
 import WebKit
 
-class AuthViewController: UIViewController, UIWebViewDelegate {
-
-    @IBOutlet weak var wkWebView: WKWebView!
+class AuthenticationViewController: UIViewController, UIWebViewDelegate {
+    
+     @IBOutlet weak var wkWebView: WKWebView!
     
     var router: AuthenticationRouter?
     
@@ -49,7 +49,7 @@ class AuthViewController: UIViewController, UIWebViewDelegate {
     
 }
 
-extension AuthViewController: WKNavigationDelegate {
+extension AuthenticationViewController: WKNavigationDelegate {
     
     func webView(
         _ webView: WKWebView,
@@ -58,8 +58,8 @@ extension AuthViewController: WKNavigationDelegate {
         
         guard let urlString = navigationAction.request.url?.absoluteString
             else {
-            decisionHandler(.allow)
-            return
+                decisionHandler(.allow)
+                return
         }
         
         guard urlString.range(of: "#access_token") != nil else {
@@ -73,7 +73,7 @@ extension AuthViewController: WKNavigationDelegate {
             Credential().saveTokenInKeychain(accessToken)
         }
         
-        router = AuthenticationDefaultRouter(veiwController: self)        
+        router = AuthenticationIpadRouter(veiwController: self)
         router?.navigateAuthSuccess()
         
         decisionHandler(.cancel)

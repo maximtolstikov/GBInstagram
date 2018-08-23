@@ -2,7 +2,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {    
+class MainViewControllerIphone: UIViewController {    
     
     
     @IBOutlet weak var userNameLabel: UILabel!
@@ -47,7 +47,7 @@ class MainViewController: UIViewController {
         let viewController = UIStoryboard(
             name: "Main",
             bundle: nil)
-            .instantiateViewController(withIdentifier: "AuthViewController")
+            .instantiateViewController(withIdentifier: "AuthenticationViewController")
         
         present(viewController,
                 animated: true,

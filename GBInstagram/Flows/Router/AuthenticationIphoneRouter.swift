@@ -2,7 +2,7 @@
 
 import UIKit
 
-class AuthenticationDefaultRouter: AuthenticationRouter {
+class AuthenticationIphoneRouter: AuthenticationRouter {
     
     weak var viewController: UIViewController?
     
@@ -16,7 +16,7 @@ class AuthenticationDefaultRouter: AuthenticationRouter {
         let mainViewController = UIStoryboard(
             name: "Main",
             bundle: nil)
-            .instantiateViewController(withIdentifier: "MainViewController")
+            .instantiateViewController(withIdentifier: "MainViewControlletIphone")
         
         viewController?.present(
             mainViewController,

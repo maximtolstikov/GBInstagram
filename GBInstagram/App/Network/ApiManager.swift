@@ -1,6 +1,6 @@
 // Для объединения сетевых запросов в одном месте
 
-import Foundation
+import UIKit
 
 class APIManager {
     
@@ -10,6 +10,27 @@ class APIManager {
     
     let host = "https://api.instagram.com/v1"
     let token = "?access_token="
+    
+    
+    
+//    // Метод запроса на авторизацию
+//    static func getAuthenticationRequest() -> URLRequest? {
+//        
+//        let clientId = "efde2e1af6b24b339b2654cd1660558f"
+//        let redirectURL = "https://www.instagram.com"
+//        
+//        guard let url = URL(
+//            string: "https://api.instagram.com/oauth/authorize/?client_id=\(clientId)&redirect_uri=\(redirectURL)&response_type=token"
+//            ) else { return nil }
+//        
+//        let request = URLRequest(
+//            url: url,
+//            cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
+//            timeoutInterval: 10.0
+//        )
+//        
+//        return request
+//    }
     
     
     // Получение стороки запроса
