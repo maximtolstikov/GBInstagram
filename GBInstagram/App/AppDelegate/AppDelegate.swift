@@ -13,22 +13,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {        
         
-        let vc = AuthenticationViewController()
-        print("vc: \(vc.wkWebView)")
-        
         self.window = UIWindow()
+        let deviceModel = UIDevice.current.model
+        var viewController: UIViewController
+        
+        if deviceModel == DeviceType.iPhone.rawValue {
+            viewController = FirstViewControllerIphoneFactory()
+                .viewController(isUserAutheticated: Credential().isAuthorized)
+        } else {
+            viewController = FirstViewControllerIpadFactory()
+                .viewController(isUserAutheticated: Credential().isAuthorized)
+        }
 
-        let firstViewController: UIViewController
-        let factory = FirstViewControllerIphoneFactory()
-        let viewController = factory.viewController(
-            isUserAutheticated: Credential().isAuthorized)
-        firstViewController = viewController
-        self.window?.rootViewController = firstViewController
+        self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
         
         return true

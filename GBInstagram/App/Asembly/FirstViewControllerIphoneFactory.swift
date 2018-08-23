@@ -3,12 +3,6 @@
 
 import UIKit
 
-private enum ViewControllerType {
-    case mainVC
-    case authVC
-}
-
-
 class FirstViewControllerIphoneFactory {
     
     private func chooseViewController(

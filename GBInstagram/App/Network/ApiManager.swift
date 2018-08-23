@@ -13,24 +13,24 @@ class APIManager {
     
     
     
-//    // Метод запроса на авторизацию
-//    static func getAuthenticationRequest() -> URLRequest? {
-//        
-//        let clientId = "efde2e1af6b24b339b2654cd1660558f"
-//        let redirectURL = "https://www.instagram.com"
-//        
-//        guard let url = URL(
-//            string: "https://api.instagram.com/oauth/authorize/?client_id=\(clientId)&redirect_uri=\(redirectURL)&response_type=token"
-//            ) else { return nil }
-//        
-//        let request = URLRequest(
-//            url: url,
-//            cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-//            timeoutInterval: 10.0
-//        )
-//        
-//        return request
-//    }
+    // Метод запроса на авторизацию
+    static func getAuthenticationRequest() -> URLRequest? {
+        
+        let clientId = "efde2e1af6b24b339b2654cd1660558f"
+        let redirectURL = "https://www.instagram.com"
+        
+        guard let url = URL(
+            string: "https://api.instagram.com/oauth/authorize/?client_id=\(clientId)&redirect_uri=\(redirectURL)&response_type=token"
+            ) else { return nil }
+        
+        let request = URLRequest(
+            url: url,
+            cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
+            timeoutInterval: 10.0
+        )
+        
+        return request
+    }
     
     
     // Получение стороки запроса

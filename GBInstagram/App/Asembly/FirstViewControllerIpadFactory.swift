@@ -1,12 +1,7 @@
-// Для возвращения вьюконтроллера в зависимости от пердоваемого типа
+// Для возвращения вьюконтроллера в зависимости от пердаваемого типа
+// для iPad
 
 import UIKit
-
-private enum ViewControllerType {
-    case mainVC
-    case authVC
-}
-
 
 class FirstViewControllerIpadFactory {
     

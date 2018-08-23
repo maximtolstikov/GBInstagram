@@ -16,7 +16,7 @@ class AuthenticationIphoneRouter: AuthenticationRouter {
         let mainViewController = UIStoryboard(
             name: "Main",
             bundle: nil)
-            .instantiateViewController(withIdentifier: "MainViewControlletIphone")
+            .instantiateViewController(withIdentifier: "MainViewControllerIphone")
         
         viewController?.present(
             mainViewController,

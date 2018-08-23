@@ -5,30 +5,22 @@ import WebKit
 
 class AuthenticationViewController: UIViewController, UIWebViewDelegate {
     
-     @IBOutlet weak var wkWebView: WKWebView!
+    @IBOutlet weak var webView: WKWebView!
     
     var router: AuthenticationRouter?
-    
-    let clientId = "efde2e1af6b24b339b2654cd1660558f"
-    let redirectURL = "https://www.instagram.com"
-    
-    
+    var device: DeviceType = .iPhone
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let url = URL(
-            string: "https://api.instagram.com/oauth/authorize/?client_id=\(clientId)&redirect_uri=\(redirectURL)&response_type=token"
-            ) else { return }
+        guard let request = APIManager.getAuthenticationRequest() else {
+            print("Request is nil!")
+            return
+        }
         
-        let request = URLRequest(
-            url: url,
-            cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
-            timeoutInterval: 10.0
-        )
-        
-        wkWebView.navigationDelegate = self
+        webView.navigationDelegate = self
         removeCache()
-        wkWebView.load(request)
+        webView.load(request)
     }
     
     
@@ -67,15 +59,19 @@ extension AuthenticationViewController: WKNavigationDelegate {
             return
         }
         
-        if let accessToken = urlString.components(
-            separatedBy: "#access_token=").last {
-            
+        if let accessToken = urlString.components(separatedBy: "#access_token=")
+            .last {            
             Credential().saveTokenInKeychain(accessToken)
         }
         
-        router = AuthenticationIpadRouter(veiwController: self)
-        router?.navigateAuthSuccess()
+        switch device {
+        case .iPhone:
+            router = AuthenticationIphoneRouter(veiwController: self)
+        case .iPad:
+            router = AuthenticationIpadRouter(veiwController: self)
+        }
         
+        router?.navigateAuthSuccess()
         decisionHandler(.cancel)
     }
 }

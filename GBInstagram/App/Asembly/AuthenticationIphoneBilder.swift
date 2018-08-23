@@ -6,12 +6,17 @@ class AuthenticationIphoneBilder: AuthenticationBilder {
     
     func viewController() -> UIViewController {
         
-        let viewController = AuthenticationViewController()
-        let router = AuthenticationIphoneRouter(veiwController: viewController)
-        viewController.router = router
+        //swiftlint:disable force_cast
+        let authenticationController = UIStoryboard(
+            name: "Main",
+            bundle: nil)
+            .instantiateViewController(
+                withIdentifier: "AuthenticationViewController") as! AuthenticationViewController
         
-        print(viewController.wkWebView)
+        let router = AuthenticationIphoneRouter(veiwController: authenticationController)
+        authenticationController.router = router
+        authenticationController.device = DeviceType.iPhone
         
-        return viewController
+        return authenticationController
     }
 }
