@@ -21,22 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow()
 
         let firstViewController: UIViewController
-
-        if Credential().isAuthorized {
-
-            let mainViewController = UIStoryboard(
-                name: "Main",
-                bundle: nil)
-                .instantiateViewController(withIdentifier: "MainViewController")
-
-            firstViewController = mainViewController
-
-        } else {
-
-            let bilder = AuthenticationDefaultBilder()
-            firstViewController = bilder.viewController()
-        }
-
+        let factory = FirstViewControllerFactory()
+        let viewController = factory.viewController(
+            isUserAutheticated: Credential().isAuthorized)
+        firstViewController = viewController
         self.window?.rootViewController = firstViewController
         self.window?.makeKeyAndVisible()
         return true
