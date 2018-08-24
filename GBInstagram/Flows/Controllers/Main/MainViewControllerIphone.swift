@@ -2,12 +2,10 @@
 
 import UIKit
 
-class MainViewControllerIphone: UIViewController {    
-    
+class MainViewControllerIphone: UIViewController {
     
     @IBOutlet weak var userNameLabel: UILabel!
-    
-    var methodGetUserData = "/users/self"
+    lazy var apiManager = APIManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,28 +15,16 @@ class MainViewControllerIphone: UIViewController {
     }
     
     
-    // Получение данных пользователя
+    // Отображение данных пользователя
     func getUser() {
-        
-        guard let token = Credential().getTokenFromKetchain() else {
-            return
-        }
-        let apiManager = APIManager.shared
-        let urlForMethod = apiManager.URLFor(apiMethod: methodGetUserData, token: token)
-        
-        apiManager.load(urlForMethod, { [weak self] (result) in
-            guard let result = (result as? [String: Any])?["data"] as? [String: Any] else {
-                DispatchQueue.main.async {
-                    self?.userNameLabel.text = "error"
-                }
-                return
-            }
-            let user = User(dictionary: result)
+
+        apiManager.getUser { [weak self] (text) in
             DispatchQueue.main.async {
-                self?.userNameLabel.text = user.userName
+                self?.userNameLabel.text = text
             }
-        })
+        }
     }
+    
     
     @IBAction func logout(_ sender: UIBarButtonItem) {
         
@@ -47,10 +33,12 @@ class MainViewControllerIphone: UIViewController {
         let viewController = UIStoryboard(
             name: "Main",
             bundle: nil)
-            .instantiateViewController(withIdentifier: "AuthenticationViewController")
+            .instantiateViewController(
+                withIdentifier: "AuthenticationViewController")
         
         present(viewController,
                 animated: true,
                 completion: nil)
     }
+    
 }
