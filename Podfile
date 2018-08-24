@@ -6,4 +6,5 @@ target 'GBInstagram' do
   use_frameworks!
   pod 'SwiftLint', '~> 0.27.0' 
   pod 'Locksmith', '~> 4.0.0'
+  pod 'SwiftyJSON', '~> 4.0'
 end
