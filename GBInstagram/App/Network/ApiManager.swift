@@ -1,5 +1,6 @@
 // Для объединения сетевых запросов в одном месте
 
+import SwiftyJSON
 import UIKit
 
 class APIManager {
@@ -9,47 +10,105 @@ class APIManager {
     let token = "?access_token="
     var methodGetUserData = "/users/self"
     var methodGetMediaOfUser = "/users/self/media/recent"
+    var methodSearchTag = "/tags/search"
     
     
-    // Получение публикаций пользователя
-    func getMediaOfUser(completion: @escaping (String) -> Void) {
+    //Получение фото по тегу
+    func getPhotoForTag(_ tag: Tag, _ completion: @escaping (String) -> Void) {
+        
+        guard let savedToken = Credential()
+            .getTokenFromKetchain() else { return }
+        let urlForMethod = host + "/tags/" + tag.name + "/media/recent" + token + savedToken
+        
+        load(urlForMethod, { (data) in
+            
+            guard let data = data else {
+                completion("")
+                return
+            }
+            
+            let json = JSON(data)
+            let tags = json[0].map { Tag(json: $0.1) }
+            
+            completion("")
+        })
+    }
+    
+    
+    //Поиск по тегу
+    func searchTag(completion: @escaping (String) -> Void) {
         
         guard let savedToken = Credential()
             .getTokenFromKetchain() else { return }
         let urlForMethod = urlFor(
-            apiMethod: methodGetUserData,
+            apiMethod: methodSearchTag,
             token: savedToken
         )
-        load(urlForMethod, { [weak self] (result) in
-            guard let result = (result as? [String: Any])?["data"] as? [String: Any] else {
-                completion((self?.textError)!) //swiftlint:disable:this force_unwrapping
+        
+        load(urlForMethod, { (data) in
+            
+            guard let data = data else {
+                completion("")
                 return
             }
-            let user = User(dictionary: result)
-            completion(user.userName)
+            
+            let json = JSON(data)
+            let tags = json[0].map { Tag(json: $0.1) }
+            
+            completion("")
+        })
+    }
+    
+    
+    // Получение публикаций пользователя
+    func getMediaOfUser(completion: @escaping (String) -> Void) {
+
+        guard let savedToken = Credential()
+            .getTokenFromKetchain() else { return }
+        let urlForMethod = urlFor(
+            apiMethod: methodGetMediaOfUser,
+            token: savedToken
+        )
+        
+        load(urlForMethod, { (data) in
+
+            guard let data = data else {
+                completion("")
+                return
+            }
+            
+            let json = JSON(data)
+            let publication = json[0].map { Public(json: $0.1) }
+            
+            completion("")
         })
     }
     
     
     // Запрашивает и возвращает данные пользователя
-    func getUser(completion: @escaping (String) -> Void) {
+    func getUserData(completion: @escaping (String) -> Void) {
         
         guard let savedToken = Credential()
             .getTokenFromKetchain() else { return }
-        print(savedToken)
         let urlForMethod = urlFor(
             apiMethod: methodGetUserData,
             token: savedToken
             )
-        load(urlForMethod, { [weak self] (result) in
-            guard let result = (result as? [String: Any])?["data"] as? [String: Any] else {
-                completion((self?.textError)!) //swiftlint:disable:this force_unwrapping
+        load(urlForMethod, {(data) in
+            
+            guard let data = data else {
+                completion("")
                 return
             }
-            let user = User(dictionary: result)
-            completion(user.userName)
+            let json = JSON(data)
+            let users = json.map { User(json: $0.1) }
+            
+            print("urlFromGetUser: \(urlForMethod)")
+
+            completion(users[1].fullName)
+            
         })
-        
+
     }
     
     
@@ -86,14 +145,12 @@ class APIManager {
             return
         }
         let session = URLSession.shared.dataTask(with: url) { (data, _, error) in
-            guard let data = data, error == nil else {
+            guard error == nil else {
                 completion(nil)
                 return
             }
-            completion(try? JSONSerialization.jsonObject(
-                with: data,
-                options: .mutableContainers))
-            
+            completion(data)
+
         }
         session.resume()
     }

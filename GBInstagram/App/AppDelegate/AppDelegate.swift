@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+   
     
     func application(
         _ application: UIApplication,
@@ -20,14 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow()
         let deviceModel = UIDevice.current.model
         var viewController: UIViewController
+        var factory: FirstViewControllerFactory
         
         if deviceModel == DeviceType.iPhone.rawValue {
-            viewController = FirstViewControllerIphoneFactory()
-                .viewController(isUserAutheticated: Credential().isAuthorized)
+           factory = FirstViewControllerIphoneFactory()
         } else {
-            viewController = FirstViewControllerIpadFactory()
-                .viewController(isUserAutheticated: Credential().isAuthorized)
+            factory = FirstViewControllerIpadFactory()
         }
+        
+        viewController = factory.viewController(isUserAutheticated: Credential().isAuthorized)
 
         self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()

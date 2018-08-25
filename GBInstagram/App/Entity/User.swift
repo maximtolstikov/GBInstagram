@@ -1,21 +1,22 @@
 // Для определения модели пользователя
 
+import SwiftyJSON
+
 struct User {
     
-    let identifier: Int
-    let userName: String
-    let avatarImageURLString: String
-    let fullName: String
+    var identifier: Int
+    var userName: String
+    var avatarImageURLString: String
+    var fullName: String
 }
 
 extension User {
     
-    //swiftlint:disable force_cast force_unwrapping
-    init(dictionary: [String: Any]) {
-        self.init(identifier: Int(dictionary["id"] as! String)!,
-                  userName: dictionary["username"] as! String,
-                  avatarImageURLString: dictionary["profile_picture"] as! String,
-                  fullName: dictionary["full_name"] as! String)
+    init(json: JSON) {
+        self.identifier = json["id"].intValue
+        self.userName = json["username"].stringValue
+        self.avatarImageURLString = json["profile_picture"].stringValue
+        self.fullName = json["full_name"].stringValue
     }
     
 }

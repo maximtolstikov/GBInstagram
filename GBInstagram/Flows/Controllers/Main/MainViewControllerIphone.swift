@@ -18,7 +18,7 @@ class MainViewControllerIphone: UIViewController {
     // Отображение данных пользователя
     func getUser() {
 
-        apiManager.getUser { [weak self] (text) in
+        apiManager.getUserData { [weak self] (text) in
             DispatchQueue.main.async {
                 self?.userNameLabel.text = text
             }

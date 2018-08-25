@@ -3,7 +3,7 @@
 
 import UIKit
 
-class FirstViewControllerIphoneFactory {
+class FirstViewControllerIphoneFactory: FirstViewControllerFactory {
     
     private func chooseViewController(
         of type: ViewControllerType) -> UIViewController {
