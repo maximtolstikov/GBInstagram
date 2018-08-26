@@ -6,15 +6,14 @@ import WebKit
 class AuthenticationViewController: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var webView: WKWebView!
-    
+    var dataProvider: AuthenticationDataProvider!    
     var router: AuthenticationRouter?
     var device: DeviceType = .iPhone
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // TODO: - закрыть методы APIManager для контроллера
-        guard let request = APIManager.getAuthenticationRequest() else {
+
+        guard let request = dataProvider.getAuthenticationRequest() else {
             print("Request is nil!")
             return
         }

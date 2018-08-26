@@ -92,7 +92,7 @@
         <!--User View Controller Ipad-->
         <scene sceneID="wV7-vV-ZGK">
             <objects>
-                <viewController storyboardIdentifier="MainViewControllerIpad" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GuH-M2-aOF" customClass="UserViewControllerIpad" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserViewControllerIpad" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GuH-M2-aOF" customClass="UserViewControllerIpad" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MZr-9b-tXe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -103,6 +103,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFL-C0-4DN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1899" y="112"/>
+        </scene>
+        <!--Publication View Controller Iphone-->
+        <scene sceneID="eVn-YD-TjH">
+            <objects>
+                <viewController storyboardIdentifier="PublicationViewControllerIphone" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fpx-CC-qey" customClass="PublicationViewControllerIphone" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0CZ-pq-sXu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="2Xn-O7-YPA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffs-pr-3t1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2881" y="116"/>
         </scene>
     </scenes>
 </document>

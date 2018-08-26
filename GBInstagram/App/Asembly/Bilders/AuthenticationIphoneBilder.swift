@@ -16,6 +16,7 @@ class AuthenticationIphoneBilder: AuthenticationBilder {
         let router = AuthenticationIphoneRouter(veiwController: authenticationController)
         authenticationController.router = router
         authenticationController.device = DeviceType.iPhone
+        authenticationController.dataProvider = InstagramAuthenticationDataProvider()
         
         return authenticationController
     }

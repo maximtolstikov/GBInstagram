@@ -7,6 +7,7 @@ class UserViewControllerIphone: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     var dataProvider: UserDataProvider!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,11 +31,7 @@ class UserViewControllerIphone: UIViewController {
         
         Credential().deleteTokenFromKeychain()
         
-        let viewController = UIStoryboard(
-            name: "Main",
-            bundle: nil)
-            .instantiateViewController(
-                withIdentifier: "AuthenticationViewController")
+        let viewController = AuthenticationIphoneBilder().viewController()
         
         present(viewController,
                 animated: true,

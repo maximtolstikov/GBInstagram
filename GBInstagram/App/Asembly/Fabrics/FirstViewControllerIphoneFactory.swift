@@ -12,7 +12,7 @@ class FirstViewControllerIphoneFactory: FirstViewControllerFactory {
         case .authVC:
             return AuthenticationIphoneBilder().viewController()
         case .mainVC:
-            return UserViewControllerBilder().viewController()
+            return UserViewControllerIphoneBilder().viewController()
         }
     }
     

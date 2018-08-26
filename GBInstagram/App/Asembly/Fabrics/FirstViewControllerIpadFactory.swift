@@ -15,7 +15,7 @@ class FirstViewControllerIpadFactory: FirstViewControllerFactory {
             let mainViewController = UIStoryboard(
                 name: "Main",
                 bundle: nil)
-                .instantiateViewController(withIdentifier: "MainViewControllerIpad")
+                .instantiateViewController(withIdentifier: "UserViewControllerIpad")
             return mainViewController
         }
     }

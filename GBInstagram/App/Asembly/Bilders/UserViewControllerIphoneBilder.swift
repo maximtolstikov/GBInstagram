@@ -2,7 +2,7 @@
 
 import UIKit
 
-class UserViewControllerBilder {
+class UserViewControllerIphoneBilder {
     
     
     //swiftlint:disable force_cast
@@ -14,7 +14,7 @@ class UserViewControllerBilder {
             .instantiateViewController(
                 withIdentifier: "UserViewControllerIphone") as! UserViewControllerIphone
         
-        userController.dataProvider = APIManager()
+        userController.dataProvider = InsragramUserDataProvider()
         
         return userController
     }
