@@ -2,10 +2,10 @@
 
 import UIKit
 
-class MainViewControllerIphone: UIViewController {
+class UserViewControllerIphone: UIViewController {
     
     @IBOutlet weak var userNameLabel: UILabel!
-    lazy var apiManager = APIManager()
+    var dataProvider: UserDataProvider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ class MainViewControllerIphone: UIViewController {
     // Отображение данных пользователя
     func getUser() {
 
-        apiManager.getUserData { [weak self] (text) in
+        dataProvider.getUserData { [weak self] (text) in
             DispatchQueue.main.async {
                 self?.userNameLabel.text = text
             }

@@ -2,7 +2,7 @@
 
 import UIKit
 
-class MainViewControllerIpad: UIViewController {    
+class UserViewControllerIpad: UIViewController {    
     
     
     

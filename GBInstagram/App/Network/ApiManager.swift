@@ -3,7 +3,7 @@
 import SwiftyJSON
 import UIKit
 
-class APIManager {
+class APIManager: UserDataProvider {
 
     let textError = "error"
     let host = "https://api.instagram.com/v1"
@@ -119,7 +119,7 @@ class APIManager {
         let redirectURL = "https://www.instagram.com"
         
         guard let url = URL(
-            string: "https://api.instagram.com/oauth/authorize/?client_id=\(clientId)&redirect_uri=\(redirectURL)&response_type=token"
+            string: "https://api.instagram.com/oauth/authorize/?client_id=\(clientId)&redirect_uri=\(redirectURL)&response_type=token&scope=public_content"
             ) else { return nil }
         
         let request = URLRequest(

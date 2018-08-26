@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="266" y="116"/>
         </scene>
-        <!--Main View Controller Iphone-->
+        <!--User View Controller Iphone-->
         <scene sceneID="lnk-68-HSP">
             <objects>
-                <viewController storyboardIdentifier="MainViewControllerIphone" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IAK-ZS-AYa" customClass="MainViewControllerIphone" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserViewControllerIphone" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IAK-ZS-AYa" customClass="UserViewControllerIphone" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V2X-kp-X0X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="1047" y="117"/>
         </scene>
-        <!--Main View Controller Ipad-->
+        <!--User View Controller Ipad-->
         <scene sceneID="wV7-vV-ZGK">
             <objects>
-                <viewController storyboardIdentifier="MainViewControllerIpad" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GuH-M2-aOF" customClass="MainViewControllerIpad" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewControllerIpad" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GuH-M2-aOF" customClass="UserViewControllerIpad" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MZr-9b-tXe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

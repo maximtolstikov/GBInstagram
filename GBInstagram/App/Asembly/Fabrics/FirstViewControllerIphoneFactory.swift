@@ -12,11 +12,7 @@ class FirstViewControllerIphoneFactory: FirstViewControllerFactory {
         case .authVC:
             return AuthenticationIphoneBilder().viewController()
         case .mainVC:
-            let mainViewController = UIStoryboard(
-                name: "Main",
-                bundle: nil)
-                .instantiateViewController(withIdentifier: "MainViewControllerIphone")
-            return mainViewController
+            return UserViewControllerBilder().viewController()
         }
     }
     

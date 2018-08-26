@@ -13,6 +13,7 @@ class AuthenticationViewController: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // TODO: - закрыть методы APIManager для контроллера
         guard let request = APIManager.getAuthenticationRequest() else {
             print("Request is nil!")
             return
