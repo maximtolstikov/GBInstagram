@@ -28,8 +28,8 @@ class InstagramPublicationDataProvider: PublicationDataProvider {
                 return
             }
             
-            let json = JSON(data)
-            let tags = json[0].map { Tag(json: $0.1) }
+            //let json = JSON(data)
+            //let tags = json[0].map { Tag(json: $0.1) }
             
             completion("")
         })
@@ -53,8 +53,8 @@ class InstagramPublicationDataProvider: PublicationDataProvider {
                 return
             }
             
-            let json = JSON(data)
-            let tags = json[0].map { Tag(json: $0.1) }
+            //let json = JSON(data)
+            //let tags = json[0].map { Tag(json: $0.1) }
             
             completion("")
         })
@@ -78,8 +78,8 @@ class InstagramPublicationDataProvider: PublicationDataProvider {
                 return
             }
             
-            let json = JSON(data)
-            let publication = json[0].map { Public(json: $0.1) }
+            //let json = JSON(data)
+            //let publication = json[0].map { Public(json: $0.1) }
             
             completion("")
         })
