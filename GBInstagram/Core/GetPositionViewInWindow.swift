@@ -28,6 +28,7 @@ extension UIView {
     // доступная для View функция получения координат в Window
     func getPositionInWindow() -> CGPoint {
         
+        //swiftlint:disable identifier_name
         let x = getPositionX(view: self)
         let y = getPositionY(view: self)
         

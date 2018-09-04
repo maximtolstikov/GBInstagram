@@ -21,12 +21,12 @@ class InstagramPublicationDataProvider: PublicationDataProvider {
             .getTokenFromKetchain() else { return }
         let urlForMethod = host + "/tags/" + tag.name + "/media/recent" + token + savedToken
         
-        apiManager.load(urlForMethod, { (data) in
+        apiManager.load(urlForMethod, { (_) in
             
-            guard let data = data else {
-                completion("")
-                return
-            }
+//            guard let data = data else {
+//                completion("")
+//                return
+//            }
             
             //let json = JSON(data)
             //let tags = json[0].map { Tag(json: $0.1) }
@@ -46,12 +46,12 @@ class InstagramPublicationDataProvider: PublicationDataProvider {
             token: savedToken
         )
         
-        apiManager.load(urlForMethod, { (data) in
+        apiManager.load(urlForMethod, { (_) in
             
-            guard let data = data else {
-                completion("")
-                return
-            }
+//            guard let data = data else {
+//                completion("")
+//                return
+//            }
             
             //let json = JSON(data)
             //let tags = json[0].map { Tag(json: $0.1) }
@@ -71,12 +71,12 @@ class InstagramPublicationDataProvider: PublicationDataProvider {
             token: savedToken
         )
         
-        apiManager.load(urlForMethod, { (data) in
+        apiManager.load(urlForMethod, { (_) in
             
-            guard let data = data else {
-                completion("")
-                return
-            }
+//            guard let data = data else {
+//                completion("")
+//                return
+//            }
             
             //let json = JSON(data)
             //let publication = json[0].map { Public(json: $0.1) }

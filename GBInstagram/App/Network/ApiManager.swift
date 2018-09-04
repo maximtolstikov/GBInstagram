@@ -6,12 +6,18 @@ import UIKit
 class APIManager {
 
     let host = "https://api.instagram.com/v1"
-    let token = "?access_token="
+    let token = "access_token="
 
     
     // Получение стороки запроса
     func urlFor(apiMethod: String, token: String) -> String {
-        return self.host + apiMethod + self.token + token
+        return self.host + apiMethod + "?" + self.token + token
+    }
+    
+    
+    // Получение стороки запроса для поиска по тегу
+    func urlForTagSearch(tag: String, apiMethod: String, token: String) -> String {
+        return self.host + apiMethod + "?" + "q=\(tag)" + "&" + self.token + token
     }
     
     

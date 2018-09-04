@@ -42,9 +42,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="266" y="116"/>
+            <point key="canvasLocation" x="-370" y="112"/>
         </scene>
-        <!--User View Controller Iphone-->
+        <!--User-->
         <scene sceneID="lnk-68-HSP">
             <objects>
                 <viewController storyboardIdentifier="UserViewControllerIphone" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IAK-ZS-AYa" customClass="UserViewControllerIphone" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,13 +81,83 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PWG-zL-PO3"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="User" id="DMx-Lj-IuS"/>
                     <connections>
                         <outlet property="userNameLabel" destination="OZZ-oc-Sr9" id="a9i-2N-IXy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHz-Y2-kpl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047" y="117"/>
+            <point key="canvasLocation" x="1996" y="-207"/>
+        </scene>
+        <!--Find-->
+        <scene sceneID="GFe-L0-r4O">
+            <objects>
+                <viewController storyboardIdentifier="TagSearchController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="C15-Z4-TQz" customClass="TagSearchController" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dZB-zQ-8HA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2yZ-y8-0uX">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QAX-Q8-Vap">
+                                <rect key="frame" x="0.0" y="76" width="375" height="591"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TagSearchCell" id="81C-rb-4Kp" customClass="TagSearchCell" customModule="GBInstagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="81C-rb-4Kp" id="BdU-kq-uQa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbr-Wa-Yu3">
+                                                    <rect key="frame" x="24" y="9" width="331" height="26"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nbr-Wa-Yu3" firstAttribute="leading" secondItem="BdU-kq-uQa" secondAttribute="leading" constant="24" id="9Y9-tW-8Qc"/>
+                                                <constraint firstItem="nbr-Wa-Yu3" firstAttribute="centerY" secondItem="BdU-kq-uQa" secondAttribute="centerY" id="gvn-Zf-vYb"/>
+                                                <constraint firstAttribute="trailing" secondItem="nbr-Wa-Yu3" secondAttribute="trailing" constant="20" id="v4h-hM-p5D"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="leftLable" destination="nbr-Wa-Yu3" id="uO0-9v-FhX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="C15-Z4-TQz" id="zUs-B5-TXD"/>
+                                    <outlet property="delegate" destination="C15-Z4-TQz" id="DFc-tg-ad5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2yZ-y8-0uX" firstAttribute="leading" secondItem="4wj-u1-sL4" secondAttribute="leading" id="2mc-Ln-lNS"/>
+                            <constraint firstItem="2yZ-y8-0uX" firstAttribute="top" secondItem="4wj-u1-sL4" secondAttribute="top" id="9fL-j9-oyy"/>
+                            <constraint firstItem="2yZ-y8-0uX" firstAttribute="trailing" secondItem="4wj-u1-sL4" secondAttribute="trailing" id="Jmb-W6-ryk"/>
+                            <constraint firstItem="QAX-Q8-Vap" firstAttribute="trailing" secondItem="4wj-u1-sL4" secondAttribute="trailing" id="Ui3-sf-07J"/>
+                            <constraint firstItem="QAX-Q8-Vap" firstAttribute="bottom" secondItem="4wj-u1-sL4" secondAttribute="bottom" id="jzE-py-ZeS"/>
+                            <constraint firstItem="QAX-Q8-Vap" firstAttribute="leading" secondItem="4wj-u1-sL4" secondAttribute="leading" id="rgZ-UE-ZAr"/>
+                            <constraint firstItem="QAX-Q8-Vap" firstAttribute="top" secondItem="2yZ-y8-0uX" secondAttribute="bottom" id="wV8-Q4-oP1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4wj-u1-sL4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Find" id="tyd-j6-4l9"/>
+                    <connections>
+                        <outlet property="searchBar" destination="2yZ-y8-0uX" id="YZU-e9-bFM"/>
+                        <outlet property="tableView" destination="QAX-Q8-Vap" id="TR0-RK-Krj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jle-cy-tSw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1996" y="450.22488755622192"/>
         </scene>
         <!--User View Controller Ipad-->
         <scene sceneID="wV7-vV-ZGK">
@@ -102,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFL-C0-4DN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1899" y="112"/>
+            <point key="canvasLocation" x="2837.5999999999999" y="111.99400299850076"/>
         </scene>
         <!--Publication View Controller Iphone-->
         <scene sceneID="eVn-YD-TjH">
@@ -117,7 +187,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffs-pr-3t1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2881" y="116"/>
+            <point key="canvasLocation" x="3820" y="115.59220389805098"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zXw-Er-KTp">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9aI-UE-yAu" customClass="TabBarController" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tu6-iV-xpT">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V97-Z3-YSq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1045.5999999999999" y="116.49175412293854"/>
         </scene>
     </scenes>
 </document>

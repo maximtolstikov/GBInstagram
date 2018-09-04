@@ -13,12 +13,14 @@ class AuthenticationIphoneRouter: AuthenticationRouter {
     
     func navigateAuthSuccess() {
         
-        //swiftlint:disable force_cast
-        let userViewController = UserViewControllerIphoneBilder()
-            .viewController() as! UserViewControllerIphone        
+        let tabBarController = UIStoryboard(
+            name: "Main",
+            bundle: nil)
+            .instantiateViewController(
+                withIdentifier: "TabBarController")
         
         viewController?.present(
-            userViewController,
+            tabBarController,
             animated: true,
             completion: nil)
     }
