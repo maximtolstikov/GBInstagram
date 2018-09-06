@@ -13,11 +13,8 @@ class AuthenticationIphoneRouter: AuthenticationRouter {
     
     func navigateAuthSuccess() {
         
-        let tabBarController = UIStoryboard(
-            name: "Main",
-            bundle: nil)
-            .instantiateViewController(
-                withIdentifier: "TabBarController")
+        let tabBarController = TabBarControllerBilder()
+            .viewController()
         
         viewController?.present(
             tabBarController,

@@ -67,6 +67,7 @@ class TagSearchController: UIViewController {
         guard let snapshot = snapshot as? TagSearchControllerSnapshot,
         snapshot.inputText != nil else { return }
         searchBar.text = snapshot.inputText
+        //swiftlint:disable:next force_unwrapping
         getDataFromServer(for: snapshot.inputText!)
     }
     
