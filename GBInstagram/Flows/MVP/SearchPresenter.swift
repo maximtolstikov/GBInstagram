@@ -17,6 +17,7 @@ class SearchPresenter: SearchViewOutput {
     }
     
     
+    // Обрабатывает запрос из SearchBar
     func didChangeQuery(to query: String?) {
         
         guard let query = query else {
@@ -72,6 +73,7 @@ class SearchPresenter: SearchViewOutput {
 
         //swiftlint:disable:next force_unwrapping
         getDataFromServer(for: snapshot.inputText!)
+        view.query = snapshot.inputText
         
     }
     

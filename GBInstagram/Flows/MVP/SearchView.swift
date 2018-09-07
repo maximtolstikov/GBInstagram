@@ -8,4 +8,5 @@ protocol SearchView: AnyObject {
     var searchResult: [SearchResultCellModel]? { get set }
     
     func moveTo(viewController: UIViewController)
+    
 }

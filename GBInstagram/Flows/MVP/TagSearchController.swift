@@ -8,7 +8,11 @@ class TagSearchController: UIViewController, SearchView {
     @IBOutlet weak var tableView: UITableView!
     
     var output: SearchViewOutput!
-    var query: String?
+    var query: String? {
+        didSet {
+            searchBar.text = query
+        }
+    }
     var searchResult: [SearchResultCellModel]? {
         didSet {
             DispatchQueue.main.async {
@@ -25,7 +29,8 @@ class TagSearchController: UIViewController, SearchView {
         tableView.delegate = self
         searchBar.delegate = self
         searchBar.becomeFirstResponder()
-        //setTextInSearchBar()
+        output.setTextInSearchBar()
+        
     }
     
     
