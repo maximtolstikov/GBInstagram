@@ -14,13 +14,19 @@ class TagSearchControllerBilder {
             .instantiateViewController(
                 withIdentifier: "TagSearchController") as! TagSearchController
         
-        tagSearchController.dataProvider = InstagramTagSearchDataProvider()
-        tagSearchController.snapshotManager = DefaultSnapshotManaget(
+        let presenter = SearchPresenter()
+        presenter.dataProvider = InstagramTagSearchDataProvider()
+        presenter.snapshotManager = DefaultSnapshotManaget(
             userId: getUserIdFromUserDefaults())
+        presenter.view = tagSearchController
+        
+        tagSearchController.output = presenter
         
         return tagSearchController
     }
     
+    
+    // Получает userId из UserDefaults
     private func getUserIdFromUserDefaults() -> Int {
         
         let userDefaults = UserDefaults.standard
