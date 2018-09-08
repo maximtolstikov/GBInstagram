@@ -1,6 +1,6 @@
 // Для описания модели передачи результата из презентера в контроллер
 
-struct SearchResultCellModel {
+struct TagSearchCellModel {
     
     let title: String
     let identifier: String

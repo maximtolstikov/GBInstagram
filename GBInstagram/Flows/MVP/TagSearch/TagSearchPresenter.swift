@@ -2,17 +2,27 @@
 
 import Foundation
 
-class SearchPresenter: SearchViewOutput {
+class TagSearchPresenter: TagSearchViewOutput {
     
     let identifireSnapshot = "TagSearchControllerSnapshot"
     
     var dataProvider: TagSearchDataProvider!
     var snapshotManager: SnapshotManager!
-    weak var view: SearchView!
+    weak var view: TagSearchView!
     var searchResult: [Tag]?
+    var tagSearchResultControllerBilder: TagSearchResultControllerBilder!
     
     
+    // Вызывает переход в сответствии с выбраным тэгом
     func didSelectItem(with identifier: String) {
+        
+        guard let tag = searchResult?.first(where: {
+            $0.name == identifier
+        }) else { return }
+        
+        view.moveTo(
+            viewController: tagSearchResultControllerBilder
+                .viewController(for: tag))
         
     }
     
@@ -39,6 +49,7 @@ class SearchPresenter: SearchViewOutput {
         
         dataProvider.getTags(with: text) { [weak self] (tags) in
             
+            self?.searchResult = tags
             self?.view.searchResult = tags.compactMap({
                 self?.cellModel(for: $0)
             })
@@ -48,9 +59,9 @@ class SearchPresenter: SearchViewOutput {
     
     
     // Создает модель для передачи в контроллер
-    func cellModel(for tag: Tag) -> SearchResultCellModel {
+    func cellModel(for tag: Tag) -> TagSearchCellModel {
         
-        return SearchResultCellModel(title: tag.name, identifier: tag.name)
+        return TagSearchCellModel(title: tag.name, identifier: tag.name)
         
     }
     
@@ -93,7 +104,8 @@ class SearchPresenter: SearchViewOutput {
 // Для описания класса Snapshot
 
 // swiftlint:disable:next private_over_fileprivate
-@objc(_TagSearchControllerSnapshot) fileprivate class TagSearchControllerSnapshot: NSObject, Snapshot {
+@objc(_TagSearchControllerSnapshot) fileprivate class TagSearchControllerSnapshot: NSObject,
+                                                                                   Snapshot {
     
     let identifier: String
     let inputText: String?
@@ -107,7 +119,8 @@ class SearchPresenter: SearchViewOutput {
     
     required init?(coder aDecoder: NSCoder) {
         
-        guard let identifier = aDecoder.decodeObject(forKey: "identifire") as? String else { return nil }
+        guard let identifier = aDecoder
+            .decodeObject(forKey: "identifire") as? String else { return nil }
         
         self.inputText = aDecoder.decodeObject(forKey: "inputText") as? String
         self.identifier = identifier

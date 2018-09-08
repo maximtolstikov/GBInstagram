@@ -2,10 +2,10 @@
 
 import UIKit
 
-protocol SearchView: AnyObject {
+protocol TagSearchView: AnyObject {
     
     var query: String? { get set }
-    var searchResult: [SearchResultCellModel]? { get set }
+    var searchResult: [TagSearchCellModel]? { get set }
     
     func moveTo(viewController: UIViewController)
     

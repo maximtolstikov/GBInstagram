@@ -14,11 +14,12 @@ class TagSearchControllerBilder {
             .instantiateViewController(
                 withIdentifier: "TagSearchController") as! TagSearchController
         
-        let presenter = SearchPresenter()
+        let presenter = TagSearchPresenter()
         presenter.dataProvider = InstagramTagSearchDataProvider()
         presenter.snapshotManager = DefaultSnapshotManaget(
             userId: getUserIdFromUserDefaults())
         presenter.view = tagSearchController
+        presenter.tagSearchResultControllerBilder = TagSearchResultControllerBilder()
         
         tagSearchController.output = presenter
         

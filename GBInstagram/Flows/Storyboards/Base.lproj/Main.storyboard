@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,6 +91,127 @@
             </objects>
             <point key="canvasLocation" x="1996" y="-207"/>
         </scene>
+        <!--Tag Search Result Controller-->
+        <scene sceneID="7EV-Pb-zNm">
+            <objects>
+                <viewController storyboardIdentifier="TagSearchResultController" id="b2w-y2-OtS" customClass="TagSearchResultController" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nzI-Uj-Urb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcZ-Wd-LtB">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="FZ2-dO-8kD">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="eKt-Or-gaA">
+                                            <connections>
+                                                <action selector="backButton:" destination="b2w-y2-OtS" id="gao-kf-Jn4"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="83u-rs-bwj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EuF-l4-IZb">
+                                    <size key="itemSize" width="150" height="150"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagSearchResultCell" id="qfT-fc-eN7" customClass="TagSearchResultCell" customModule="GBInstagram" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="20" width="150" height="150"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Y9K-2b-sVd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Y9K-2b-sVd" secondAttribute="trailing" id="1zW-9N-IZC"/>
+                                            <constraint firstItem="Y9K-2b-sVd" firstAttribute="leading" secondItem="qfT-fc-eN7" secondAttribute="leading" id="FYA-jz-6gw"/>
+                                            <constraint firstAttribute="bottom" secondItem="Y9K-2b-sVd" secondAttribute="bottom" id="jE5-To-yJ5"/>
+                                            <constraint firstItem="Y9K-2b-sVd" firstAttribute="top" secondItem="qfT-fc-eN7" secondAttribute="top" id="nIx-TQ-2b4"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageViewCell" destination="Y9K-2b-sVd" id="4Oh-MH-MLp"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="83u-rs-bwj" firstAttribute="trailing" secondItem="7BW-SL-3ng" secondAttribute="trailing" id="0M7-eq-j0H"/>
+                            <constraint firstItem="83u-rs-bwj" firstAttribute="bottom" secondItem="7BW-SL-3ng" secondAttribute="bottom" id="5Xx-ez-waa"/>
+                            <constraint firstItem="83u-rs-bwj" firstAttribute="leading" secondItem="7BW-SL-3ng" secondAttribute="leading" id="6CF-wy-6dN"/>
+                            <constraint firstItem="LcZ-Wd-LtB" firstAttribute="top" secondItem="7BW-SL-3ng" secondAttribute="top" id="Q9e-v4-jHL"/>
+                            <constraint firstItem="LcZ-Wd-LtB" firstAttribute="leading" secondItem="7BW-SL-3ng" secondAttribute="leading" id="U1C-py-Qsh"/>
+                            <constraint firstItem="LcZ-Wd-LtB" firstAttribute="trailing" secondItem="7BW-SL-3ng" secondAttribute="trailing" id="aCf-VO-6fN"/>
+                            <constraint firstItem="83u-rs-bwj" firstAttribute="top" secondItem="LcZ-Wd-LtB" secondAttribute="bottom" id="enK-mL-Y1U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7BW-SL-3ng"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="83u-rs-bwj" id="Zzm-nT-MEo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nmg-Am-q9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3044" y="-44.527736131934034"/>
+        </scene>
+        <!--Tag Result Detail Controller-->
+        <scene sceneID="3BD-dJ-vax">
+            <objects>
+                <viewController storyboardIdentifier="TagResultDetailController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NOt-SJ-KS6" customClass="TagResultDetailController" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JBy-Cq-T8Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zba-21-Jt6">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="kPq-8S-YKS">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="zoE-9I-mMQ">
+                                            <connections>
+                                                <action selector="backButton:" destination="NOt-SJ-KS6" id="yGz-Vk-FFC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fQ8-Pf-Qzf">
+                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fQ8-Pf-Qzf" secondAttribute="height" multiplier="1:1" id="fVF-tO-AEe"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fQ8-Pf-Qzf" firstAttribute="trailing" secondItem="5W6-MU-u8g" secondAttribute="trailing" id="52t-xh-rgO"/>
+                            <constraint firstItem="zba-21-Jt6" firstAttribute="leading" secondItem="5W6-MU-u8g" secondAttribute="leading" id="6qq-Bh-gvt"/>
+                            <constraint firstItem="fQ8-Pf-Qzf" firstAttribute="centerY" secondItem="JBy-Cq-T8Y" secondAttribute="centerY" id="Nd1-K8-OYa"/>
+                            <constraint firstItem="zba-21-Jt6" firstAttribute="trailing" secondItem="5W6-MU-u8g" secondAttribute="trailing" id="VFt-CQ-X0N"/>
+                            <constraint firstItem="zba-21-Jt6" firstAttribute="top" secondItem="5W6-MU-u8g" secondAttribute="top" id="Xc3-1U-T69"/>
+                            <constraint firstItem="fQ8-Pf-Qzf" firstAttribute="leading" secondItem="5W6-MU-u8g" secondAttribute="leading" id="zuh-jL-lei"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5W6-MU-u8g"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="fQ8-Pf-Qzf" id="rfL-UT-1ZG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Yu-FZ-1Ji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3884" y="3.1484257871064472"/>
+        </scene>
         <!--Find-->
         <scene sceneID="GFe-L0-r4O">
             <objects>
@@ -172,7 +294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFL-C0-4DN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2837.5999999999999" y="111.99400299850076"/>
+            <point key="canvasLocation" x="5625" y="116"/>
         </scene>
         <!--Publication View Controller Iphone-->
         <scene sceneID="eVn-YD-TjH">
@@ -187,7 +309,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffs-pr-3t1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3820" y="115.59220389805098"/>
+            <point key="canvasLocation" x="6607" y="120"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="zXw-Er-KTp">
@@ -195,6 +317,7 @@
                 <tabBarController storyboardIdentifier="TabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9aI-UE-yAu" customClass="TabBarController" customModule="GBInstagram" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tu6-iV-xpT">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

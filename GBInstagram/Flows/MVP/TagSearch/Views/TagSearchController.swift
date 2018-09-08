@@ -2,18 +2,18 @@
 
 import UIKit
 
-class TagSearchController: UIViewController, SearchView {
+class TagSearchController: UIViewController, TagSearchView {
    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    var output: SearchViewOutput!
+    var output: TagSearchViewOutput!
     var query: String? {
         didSet {
             searchBar.text = query
         }
     }
-    var searchResult: [SearchResultCellModel]? {
+    var searchResult: [TagSearchCellModel]? {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -36,7 +36,7 @@ class TagSearchController: UIViewController, SearchView {
     
     // Переходит на переданный viewController
     func moveTo(viewController: UIViewController) {
-        
+        present(viewController, animated: true, completion: nil)
     }
    
 }
@@ -72,6 +72,21 @@ extension TagSearchController: UITableViewDataSource, UITableViewDelegate {
         return searchResult?.count ?? 0
         
     }
+    
+    
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
+        
+        guard let item = searchResult?[indexPath.row] else {
+            assertionFailure()
+            return
+        }
+        
+        output.didSelectItem(with: item.identifier)
+        
+    }
+    
 }
 
 
